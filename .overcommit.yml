@@ -20,32 +20,32 @@ verify_signatures: false
 
 PreCommit:
   BundleCheck:
-    enabled: true
+    enabled: false
 
   FixMe:
-    enabled: true
+    enabled: false
     keywords: ["FIXME"]
     exclude:
       - .overcommit.yml
 
   LocalPathsInGemfile:
-    enabled: true
+    enabled: false
 
   RailsSchemaUpToDate:
-    enabled: true
+    enabled: false
 
   RuboCop:
-    enabled: true
+    enabled: false
     on_warn: fail
 
   TrailingWhitespace:
-    enabled: true
+    enabled: false
     exclude:
       - "**/db/structure.sql"
 
   YamlSyntax:
-    enabled: true
+    enabled: false
 
 PostCheckout:
   ALL:
-    quiet: true
+    quiet: false

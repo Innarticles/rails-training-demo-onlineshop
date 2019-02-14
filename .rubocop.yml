@@ -1,6 +1,6 @@
 AllCops:
-  DisplayCopNames: true
-  DisplayStyleGuide: true
+  DisplayCopNames: false
+  DisplayStyleGuide: false
   TargetRubyVersion: 2.4
   Exclude:
     - "bin/*"
@@ -54,7 +54,7 @@ Performance/Casecmp:
   Enabled: false
 
 Rails:
-  Enabled: true
+  Enabled: false
 
 Rails/ApplicationRecord:
   Exclude:
@@ -91,4 +91,4 @@ Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/TrivialAccessors:
-  AllowPredicates: true
+  AllowPredicates: false
