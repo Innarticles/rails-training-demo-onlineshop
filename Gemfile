@@ -26,6 +26,7 @@ group :production, :staging do
 end
 
 group :development do
+  gem 'sqlite3'
   gem "annotate", ">= 2.5.0"
   gem "awesome_print"
   gem "better_errors"
