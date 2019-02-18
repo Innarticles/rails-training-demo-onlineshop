@@ -22,4 +22,14 @@ ActiveRecord::Schema.define(version: 2019_02_14_163050) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.float "price"
+    t.float "sale_price"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

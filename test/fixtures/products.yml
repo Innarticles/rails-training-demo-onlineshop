@@ -5,7 +5,11 @@
 #  category    :string
 #  created_at  :datetime         not null
 #  description :text
+<<<<<<< HEAD
 #  id          :integer          not null, primary key
+=======
+#  id          :bigint(8)        not null, primary key
+>>>>>>> 8f57b72a65c2ebb7751ad5740391bf8218238525
 #  price       :float
 #  sale_price  :float
 #  title       :string
