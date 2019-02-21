@@ -1,1 +1,41 @@
 # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+#user story
+AS THE SELLER
+i will be able to uplaod my products in the shop, so as to sell
+i will be able to edit a product, so as to update my shop
+i will be able to delete a product, so as to remove product in my shop
+i will be able to see what product had been sold, so as to be able to keep track of my sales
+i will able to see a list of all product, so i will be able to keep stock of product in my shop.
+
+AS A BUYER
+i will be able to visit d site to see the different product in the shop, so as to make a decison of what to shop
+i will be able to add items to the cart, so i as to conveniently shop\
+i will be able to checkout my order, so as to get my order shipped
+i will be able to search product by category, so as to convenitently shop
+
+
+MODELS
+PRODUCT- description, color, quantity, occasion, prize. review, name, id, category, sold_at, created_at, updated_at
+CATEGORY- title
+CART- no_of_item, product_id, quantity, price, user_id,
+CART_ITEM- product_id, qty, cart_id, order_id
+ORDER, user_id , create_at, updated_at, total
+USER- first_name, last_name, email, password, addressadd_column("products", "color", :string
+SELLER- username, password
+
+
+RELATIONSHIP
+seller has many product; product belongs to seller - has many yo one rela...
+user has an order
+carts has many product; product belongs to cart -- has many to one rela...
+product has many category, category has many product -- many to many...
+cart has many cart_item, has many to one relationship
+order has many cart_item, has one to many rela...
+
+
+
+TASKS
+added cart_to_product product:belongs_to
+added a many to many relationship btw product and category
+addeed a one to 
+
