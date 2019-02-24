@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :products
+  resources :orders
+  resources :cart_items
+  resource :cart, only: [:show]
+
   # mount Sidekiq::Web => "/sidekiq" # monitoring console
   root "home#index"
   match ':controller(/:action(/:id))' , :via => [:get, :post]

@@ -2,17 +2,22 @@
 #
 # Table name: orders
 #
-#  cart_item  :belongs
 #  created_at :datetime         not null
 #  id         :integer          not null, primary key
-#  order_id   :integer
 #  sub_total  :string
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 # Indexes
 #
-#  index_orders_on_order_id  (order_id)
+#  index_orders_on_user_id  (user_id)
 #
 
 class Order < ApplicationRecord
+
+	has_many :cart_items
+
+
+	validates :user_id,  presence: true
+	validates :id, uniqueness: true
 end

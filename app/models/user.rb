@@ -8,16 +8,23 @@
 #  first_name   :string
 #  id           :integer          not null, primary key
 #  last_name    :string
-#  order_id     :integer
 #  password     :string
 #  phone_number :integer
 #  updated_at   :datetime         not null
-#
-# Indexes
-#
-#  index_users_on_order_id  (order_id)
+#  username     :string
 #
 
 class User < ApplicationRecord
-  belongs_to :product
+	has_one :cart
+	has_many :orders
+  
+
+  validates :username, :password, :address, :email, :first_name, :last_name, :phone_number, presence: true
+  validates :username, :email, :phone_number, uniqueness: true
+  validates :username, exclusion: { in: %w(admin administrator account admins), message: "%{value} is reserved." }
+  validates :email, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
+  validates :username, length: { maximum: 25,too_long: "%{count} characters is the maximum allowed" }
+  validates :password, length: { in: 6..20 }
+  validates :first_name, length: { maximum: 25,too_long: "%{count} characters is the maximum allowed" }
+  validates :last_name, length: { maximum: 25,too_long: "%{count} characters is the maximum allowed" }
 end

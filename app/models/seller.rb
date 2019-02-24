@@ -5,15 +5,17 @@
 #  created_at :datetime         not null
 #  id         :integer          not null, primary key
 #  password   :string
-#  product_id :integer
 #  updated_at :datetime         not null
 #  username   :string
 #
-# Indexes
-#
-#  index_sellers_on_product_id  (product_id)
-#
 
 class Seller < ApplicationRecord
-  belongs_to :product
+  
+  has_many :products, dependent: :destroy
+  
+
+  validates :username, :password, presence: true
+  validates :username, uniqueness: true
+  validates :username, length: { maximum: 15,too_long: "%{count} characters is the maximum allowed" }
+  validates :password, length: { in: 6..20 }
 end

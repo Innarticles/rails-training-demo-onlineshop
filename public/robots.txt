@@ -12,30 +12,87 @@ i will be able to visit d site to see the different product in the shop, so as t
 i will be able to add items to the cart, so i as to conveniently shop\
 i will be able to checkout my order, so as to get my order shipped
 i will be able to search product by category, so as to convenitently shop
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------MODELS---------------------------------------------------
+PRODUCT- description, color, quantity, occasion, prize. , id, category, sold_at, created_at, updated_at $
+CATEGORY- title $
+PRODUCT_CATEGORY $
+CART- Q, quantity_of_CartItem, price,cart_id user_id, $
+CART_ITEM- PRODUCT_ID...QTY_OF_PRODUCT...PRICE_OF_PRODECT,cart_id, order_id $
+ORDER, user_id , create_at, updated_at, total $
+USER- first_name, last_name, email, password, addressadd_column("products", "color", :string $
+SELLER- username, password $
+REVIEW- product_id, content(text less than 20 characters) $
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------RELATIONSHIP----------------------------------------------------------
+A SELLER HAS MANY PRODUCTS - PRODUCTS BELONGS TO THE SELLER$
+A PRODUCT HAS MANY CATEGORIES, A CATEGORY HAS MANY PRODUCTS.// remove join table assiociation and use -- a product has one category---- rem
+PRODUCT HAS MANY REVIEWS, REVIEWS BELONG TO A PRODUCT $
+CART HAS MANY PRODUCTS, PRODUCT BELONG TO A CART/// remove product_id from cart
+CART HAS MANY CART_ITEMS, CART_ITEM BELONG TO A CART $
+USER HAS A CART, A CART BELONG TO A USER $
+ORDER HAS MANY CART_ITEMS, CART ITEN BELONG TO AN ORDER $
+USER HAS AN MANY ORDERS, AN ORDER BELONGS TO A USER
+
+??
+IN THE CART_ITEM TABLE: PRODUCT_ID...QTY_OF_PRODUCT...PRICE_OF_PRODECT
+PRODUCT HAS ONE CART_ITEM $
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------DATA VALIDATION------------------------------------------------------------
+SELLER
+>>> VALIDATE D PRES... OF USER_ID, PASSWORD
+>>> VALIDATE LENGHT OF USERNAME
+>>> VALIDATE UNIQUENESS OF USERNAME
+PRODUCT
+>>>VALIDATE D PRESENCE titile...other attributes
+>>>VALIDATE D UNIQUENESS OF ID
+>>>VALIDATE D LIMIT OF
+
+CART:
+>>> VALIDATE D PRESENCE OF PRICE;CART_ITEM_ID;USER_ID;
+>>> VALIDATE D UNIQUENSS OF USER_ID, CART_ITEM_ID
+
+USER
+VALIDATE D PRESEN.. OF first_name, last_name, email, password, addressadd_column...
+VALIDE D UNIQUENESS OF username, user_id, cart_id, order_id, email
+VALIDATE EXCLUSION OF username
+VALIDATE FORMAT OF email
+VALIDATE LENGHT OF USERNAME, PASSWORD FIRST_NAME LAST_NAME 
+VALIDATE FORMAT OF PASSWORD
+
+ORDER
+VALIDATE D PRESENCE OF USER_ID, SUB_TOTAL
+VALIDATE D UNIQUENESS OF ID
 
 
-MODELS
-PRODUCT- description, color, quantity, occasion, prize. review, name, id, category, sold_at, created_at, updated_at
-CATEGORY- title
-CART- no_of_item, product_id, quantity, price, user_id,
-CART_ITEM- product_id, qty, cart_id, order_id
-ORDER, user_id , create_at, updated_at, total
-USER- first_name, last_name, email, password, addressadd_column("products", "color", :string
-SELLER- username, password
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------DATA DATA BASE ACTIONS-------------------------------------------------		
+CREATE A SELLER $
+SELLER CAN CREATE PRODUCT( P1(q3),P2(q4),P3(q1),P4(q3)) $
+CREATE A USER $
+USER ADD p1(2),p2(3),p3(1) to CART
+USER REMOVE p2 from CART
+the cart_item should be equal to 2(p1,p1,p3)
+USER plcae an ORDER (p1,p1,p3)[SUB_PRICE+PRODUCT_ID]
+>>> ORDER_1 = [p1,p1,p3].(id)
+>>> ORDER_1 = [p1,p1,p3].SUB_TOTAL(p1.price + p1.price + p3.price)
+USER CHECKOUT  ORDER_1
+>>>> [p1,p1,p3].(id).destroy
+>>>> CART_ITEM = NILL
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------NEW UPADATE FOR MIGRATION----------------------------------------
+-----------------------------------------------------------------------------------------------------------
+ REMOVE CART MODEL
+ >>> DELETE THE CART MIGRATION
+ >>> REMOVE CART REF FROM EACH MODEL - USER, ORDER $
+
+ ADD MORE FIELDS TO THE OTHER MODEL
+ >>> ADD TOTAL_PRICE
+ >>> SHIPPING
+ >>> TRACKING NO
+ //CREATE A ORDER_PRODUCT JOIN TABLE MODEL
 
 
-RELATIONSHIP
-seller has many product; product belongs to seller - has many yo one rela...
-user has an order
-carts has many product; product belongs to cart -- has many to one rela...
-product has many category, category has many product -- many to many...
-cart has many cart_item, has many to one relationship
-order has many cart_item, has one to many rela...
 
 
 
-TASKS
-added cart_to_product product:belongs_to
-added a many to many relationship btw product and category
-addeed a one to 
+
 

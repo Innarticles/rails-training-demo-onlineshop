@@ -8,14 +8,10 @@
 #  first_name   :string
 #  id           :integer          not null, primary key
 #  last_name    :string
-#  order_id     :integer
 #  password     :string
 #  phone_number :integer
 #  updated_at   :datetime         not null
-#
-# Indexes
-#
-#  index_users_on_order_id  (order_id)
+#  username     :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
