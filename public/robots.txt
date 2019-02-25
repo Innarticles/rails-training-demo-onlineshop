@@ -2,16 +2,43 @@
 #user story
 AS THE SELLER
 i will be able to uplaod my products in the shop, so as to sell
+CREATE A SELLER ACCOUNT 
+LOG IN- create a user access
+- login, create a access_controller, seller_controller, use bcyrpt for aunthecation, place a before_action callback for url
+GET REDIRECTED TO A DASHBOARD PAGE - create route for dashboard,place a before_action callback for url - create dashboard_controller index, new, edit, delete and add its action
+create a _partial layout for menu_action functions- add product, show all, balance sheet 
+ON THE DASHBOARD PAGE - CLICK ON ADD PRODUCTS- add layout to the new, add form partial for common field
+RENDER A FORM FOR A PRODUCT -
+FILL THE FORM
+CLICK ON SUBMIT
+REDIRECTED TO THE DASHBOARD WITH HASH MESSAGE ABOUT THE SUCCESS - add flash[:hashed to application layout]
 i will be able to edit a product, so as to update my shop
+create layout for edit and share layout with changes with the action
+GO TO THE DASHBOARD CLICK ON VIEW PRODUCTS.  create index layout looping through all product with a form_for
+GET REDIRECTED TO THE INDEX PAGE SHOWING ALL PRODUCT
+CLICK ON EDIT AT THE SIDE OF A PRODUCT GET REDIRECTED TO THE EDIT PAGE add edit link at the side of the page
+add update link
+add delete link
+add hash flash
+EDIT DETAILS AND CLICK SUBMIT
+RECORD GET UPDATED AND REDIRECT ME TO THE INDEX PAGE
 i will be able to delete a product, so as to remove product in my shop
-i will be able to see what product had been sold, so as to be able to keep track of my sales
-i will able to see a list of all product, so i will be able to keep stock of product in my shop.
+SAME WITH EDIT ONLY IN THIS CASE WILL SEE A DELETE PAGE
+CLICK ON DELETE 
+GET REDIRECTED TO THE INDEX PAGE WITH HASH NOTICE
 
-AS A BUYER
-i will be able to visit d site to see the different product in the shop, so as to make a decison of what to shop
-i will be able to add items to the cart, so i as to conveniently shop\
-i will be able to checkout my order, so as to get my order shipped
-i will be able to search product by category, so as to convenitently shop
+i will be able to see what product had been sold, so as to be able to keep track of my sales
+ON THE DASHBOARD PAGE
+THE HOME PAGE WILL SHOW A TABLE WITH FIELDS (NAME OF PRODUCT, PRICE,QTY SOLD, DATE SOLD, TOTAL)
+i will able to see a list of all product, so i will be able to keep stock of product in my shop.
+AN INDEX PAGE SHOWING ALL PRODUCT
+
+AS A BUYER, 
+AS A BUYER, i will be able to visit d site to see the different product in the shop, so as to make a decison of what to shop
+
+AS A BUYER, i will be able to add items to the cart, so i as to conveniently shop\
+AS A BUYER, i will be able to checkout my order, so as to get my order shipped
+AS A BUYER, i will be able to search product by category, so as to convenitently shop
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------MODELS---------------------------------------------------
 PRODUCT- description, color, quantity, occasion, prize. , id, category, sold_at, created_at, updated_at $
@@ -84,11 +111,21 @@ USER CHECKOUT  ORDER_1
  >>> DELETE THE CART MIGRATION
  >>> REMOVE CART REF FROM EACH MODEL - USER, ORDER $
 
- ADD MORE FIELDS TO THE OTHER MODEL
+ ADD MORE FIELDS TO THE OTHER MODEL $
  >>> ADD TOTAL_PRICE
  >>> SHIPPING
  >>> TRACKING NO
  //CREATE A ORDER_PRODUCT JOIN TABLE MODEL
+
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ADD DASHBOARD FOR THE SELLER FOR ADDING PRODUCTS TO DATABASE
+CONNECT USER AUCTHENICATION WITH DEVISE
+
+
+AIM:
+CREATE USER 
 
 
 

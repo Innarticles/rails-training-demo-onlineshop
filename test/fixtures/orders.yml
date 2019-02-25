@@ -2,11 +2,15 @@
 #
 # Table name: orders
 #
-#  created_at :datetime         not null
-#  id         :integer          not null, primary key
-#  sub_total  :string
-#  updated_at :datetime         not null
-#  user_id    :integer
+#  created_at  :datetime         not null
+#  id          :integer          not null, primary key
+#  shipping    :text
+#  status      :string
+#  sub_total   :string
+#  total_price :decimal(, )
+#  track_no    :integer
+#  updated_at  :datetime         not null
+#  user_id     :integer
 #
 # Indexes
 #

@@ -2,29 +2,24 @@
 #
 # Table name: users
 #
-#  address      :text
-#  created_at   :datetime         not null
-#  email        :string
-#  first_name   :string
-#  id           :integer          not null, primary key
-#  last_name    :string
-#  password     :string
-#  phone_number :integer
-#  updated_at   :datetime         not null
-#  username     :string
+#  created_at             :datetime         not null
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  id                     :integer          not null, primary key
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  updated_at             :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
 class User < ApplicationRecord
-	has_one :cart
-	has_many :orders
-  
-
-  validates :username, :password, :address, :email, :first_name, :last_name, :phone_number, presence: true
-  validates :username, :email, :phone_number, uniqueness: true
-  validates :username, exclusion: { in: %w(admin administrator account admins), message: "%{value} is reserved." }
-  validates :email, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
-  validates :username, length: { maximum: 25,too_long: "%{count} characters is the maximum allowed" }
-  validates :password, length: { in: 6..20 }
-  validates :first_name, length: { maximum: 25,too_long: "%{count} characters is the maximum allowed" }
-  validates :last_name, length: { maximum: 25,too_long: "%{count} characters is the maximum allowed" }
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 end

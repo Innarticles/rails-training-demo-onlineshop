@@ -15,7 +15,7 @@
 #
 
 class Cart < ApplicationRecord
-	belongs_to :user
+	#belongs_to :user
 	has_many :cart_items
 	validates :price, :cart_item_qty,:user_id, :cart_item_id, presence: true
 	validates :id, :cart_item_id, uniqueness: true
