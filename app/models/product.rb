@@ -24,11 +24,8 @@ class Product < ApplicationRecord
 	belongs_to :seller
 	has_many :reviews
 	has_many :product_categories
-	has_many :categories, :through => :product_categories
-
 	
-
-	validates :title, :price, :description, :sale_price,:quantity, presence: true
+	validates :title, :price,:seller_id, :description, :sale_price, presence: true
 	validates :id, uniqueness: true
 	validates :title, length: { maximum: 25,too_long: "%{count} characters is the maximum allowed" }
 

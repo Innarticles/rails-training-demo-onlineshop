@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  <span class="glyphicon glyphicon-user" aria-hidden="true">
+  <%= link_to('', edit_user_registration_path) %>
+  </span>
+<% else %>
+  <span class="glyphicon glyphicon-user" aria-hidden="true">
+  <%= link_to('', new_user_registration_path)  %>
+ </span>
+<% end %>

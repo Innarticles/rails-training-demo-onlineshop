@@ -2,11 +2,21 @@
 #
 # Table name: sellers
 #
-#  created_at :datetime         not null
-#  id         :integer          not null, primary key
-#  password   :string
-#  updated_at :datetime         not null
-#  username   :string
+#  created_at             :datetime         not null
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  id                     :integer          not null, primary key
+#  password               :string
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  updated_at             :datetime         not null
+#  username               :string
+#
+# Indexes
+#
+#  index_sellers_on_email                 (email) UNIQUE
+#  index_sellers_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

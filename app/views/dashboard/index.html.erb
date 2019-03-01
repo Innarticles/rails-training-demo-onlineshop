@@ -1,0 +1,110 @@
+
+<div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Dashboard</h4> </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        
+                        <%= link_to("Add New product ",{:controller => 'products', :action => 'new', :seller_id => current_seller.id}, :class => 'btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light') %>
+,
+                        <ol class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <!-- ============================================================== -->
+                <!-- Different data widgets -->
+                <!-- ============================================================== -->
+                <!-- .row -->
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Total products</h3>
+                            <ul class="list-inline two-part">
+                                <li>
+                                    <div id="sparklinedash"></div>
+                                </li>
+                                <li class="text-right"><i class="ti-arrow-up text-success"></i> <span class="counter text-success"><%= @products.size %></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Total Page Views</h3>
+                            <ul class="list-inline two-part">
+                                <li>
+                                    <div id="sparklinedash2"></div>
+                                </li>
+                                <li class="text-right"><i class="ti-arrow-up text-purple"></i> <span class="counter text-purple">869</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Unique Visitor</h3>
+                            <ul class="list-inline two-part">
+                                <li>
+                                    <div id="sparklinedash3"></div>
+                                </li>
+                                <li class="text-right"><i class="ti-arrow-up text-info"></i> <span class="counter text-info">911</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--/.row -->
+                <!--row -->
+                <!-- /.row -->
+                
+                <!-- ============================================================== -->
+                <!-- table -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
+                                <select class="form-control pull-right row b-none">
+                                    <option>March 2017</option>
+                                    <option>April 2017</option>
+                                    <option>May 2017</option>
+                                    <option>June 2017</option>
+                                    <option>July 2017</option>
+                                </select>
+                            </div>
+                            <h3 class="box-title">List Of Product</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>NAME</th>
+                                            <th>QUANITY</th>
+                                            <th>PRICE</th>
+                                            <th>CREATED_AT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <% @products.each do |product| %>
+                                            <td>1</td>
+                                            <td class="txt-oflo"><%= product.title %></td>
+                                            <td><%= product.quantity%></td>
+                                        <td class="txt-oflo"><%=  number_to_currency product.price  %></td>
+                                            <td><span class="text-success"><%= product.created_at.to_s(:db) %></span></td>
+                                            <td><i class="fa fa-edit"><%= link_to('edit',{:controller => 'products', :action => 'edit',:id => product.id}) %></i></span></td>
+                                            <td><i class="fa fa-trash-o"></i></td>
+
+                                        </tr>
+                                        <% end %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- chat-listing & recent comments -->
+                <!-- ============================================================== -->
+               
+            </div>

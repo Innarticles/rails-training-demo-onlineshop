@@ -2,10 +2,12 @@
 #
 # Table name: users
 #
+#  address                :string
 #  created_at             :datetime         not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  id                     :integer          not null, primary key
+#  phone_no               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string

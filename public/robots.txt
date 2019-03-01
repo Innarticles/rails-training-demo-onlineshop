@@ -126,6 +126,48 @@ CONNECT USER AUCTHENICATION WITH DEVISE
 
 AIM:
 CREATE USER 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CRUD USER FUNCTION
+CREATE USER $
+SHOW USER $
+UPDATE USER $
+DELETE USER $
+
+
+
+SESSION MANAGEMENT
+SHOW USER_ID in box as user.name
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<table>
+<div><%= pluralize(@products.size, 'product') %> found </div>
+<tr class="header">
+    
+    <th>TITLE</th>
+    <th>created at</th>
+    
+    <th>description</th>
+    <th>price</th>
+    <th>quantity</th>
+    <th>sale price</th>
+    <th>sold at</th>
+
+                                    
+ </tr>
+<% @products.each do |product| %>
+<td><%= product.title %></td>
+
+<td><%= product.created_at %></td>
+<td><%= product.description %></td>
+<td><%= product.price %></td>
+<td><%= product.quantity %></td>
+<td><%= product.sale_price %></td>
+<td><%= product.sold_at%></td>
+<% end %>
+
+</table>
+
 
 
 

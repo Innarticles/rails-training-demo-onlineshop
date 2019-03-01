@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  <span class="glyphicon glyphicon-log" aria-hidden="true">
+  <%= link_to('Logout', destroy_user_session_path) %>        
+ </span>
+<% else %>
+  <span class="glyphicon glyphicon-log" aria-hidden="true">
+  <%= link_to('Login', new_user_session_path)  %>  
+ </span>
+<% end %>

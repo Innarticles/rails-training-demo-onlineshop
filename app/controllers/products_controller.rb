@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
+  layout 'admin'
+  before_action :authenticate_seller!
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /products
   def index
     @products = Product.all
@@ -23,6 +25,7 @@ class ProductsController < ApplicationController
   # POST /products
   def create
     @product = Product.new(product_params)
+    @product.seller_id = current_seller.id
 
     if @product.save
       redirect_to @product, notice: 'Product was successfully created.'
