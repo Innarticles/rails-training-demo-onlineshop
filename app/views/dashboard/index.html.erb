@@ -93,7 +93,7 @@
                                         <td class="txt-oflo"><%=  number_to_currency product.price  %></td>
                                             <td><span class="text-success"><%= product.created_at.to_s(:db) %></span></td>
                                             <td><i class="fa fa-edit"><%= link_to('edit',{:controller => 'products', :action => 'edit',:id => product.id}) %></i></span></td>
-                                            <td><i class="fa fa-trash-o"></i></td>
+                                            <td><i class="fa fa-trash-o"><%= link_to('delete',{:controller => 'products',:action => 'destroy',:id => product.id}) %></i></td>
 
                                         </tr>
                                         <% end %>

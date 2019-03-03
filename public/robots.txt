@@ -140,6 +140,25 @@ SHOW USER_ID in box as user.name
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------BUGS----------------------------------------------------------
+ADMIN LAYOUT- DIFFERENT LAYOUT FOR ADMIN AND USER
+>>> flash not working when form validation fail
+>>> specify admin however user devise inherited the class
+
+USE PAPER CLIP FOR IMAGES
+
+PRODUCT STATUS on order id. (if product
+since we are dealing with product that can has many quantities there  shouldnt be sold at in the index product all page.... instead it the sold item page, have cart_items with an order id.
+{position} name' quantity' category description color price' sale_price 
+
+SET COLOUR FILED TO SELECT PALLETE
+
+
+
+
+
 <table>
 <div><%= pluralize(@products.size, 'product') %> found </div>
 <tr class="header">
@@ -167,6 +186,23 @@ SHOW USER_ID in box as user.name
 <% end %>
 
 </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+00000000000000
+
+
 
 
 
