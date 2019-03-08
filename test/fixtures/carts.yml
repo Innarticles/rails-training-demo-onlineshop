@@ -2,16 +2,18 @@
 #
 # Table name: carts
 #
-#  cart_item_qty :integer
-#  created_at    :datetime         not null
-#  id            :integer          not null, primary key
-#  price         :decimal(15, 3)   not null
-#  updated_at    :datetime         not null
-#  user_id       :integer
+#  created_at      :datetime         not null
+#  id              :integer          not null, primary key
+#  order_status_id :integer
+#  subtotal        :decimal(, )
+#  total           :decimal(, )
+#  updated_at      :datetime         not null
+#  user_id         :integer
 #
 # Indexes
 #
-#  index_carts_on_user_id  (user_id)
+#  index_carts_on_order_status_id  (order_status_id)
+#  index_carts_on_user_id          (user_id)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

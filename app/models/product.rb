@@ -2,6 +2,7 @@
 #
 # Table name: products
 #
+#  active      :boolean
 #  color       :string
 #  created_at  :datetime         not null
 #  description :text             not null
@@ -28,6 +29,6 @@ class Product < ApplicationRecord
 	validates :title, :price,:seller_id, :description, :sale_price, presence: true
 	validates :id, uniqueness: true
 	validates :title, length: { maximum: 25,too_long: "%{count} characters is the maximum allowed" }
-
+	default_scope { where(active: true) }
 
 end

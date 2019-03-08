@@ -2,19 +2,21 @@
 #
 # Table name: orders
 #
-#  created_at  :datetime         not null
-#  id          :integer          not null, primary key
-#  shipping    :text
-#  status      :string
-#  sub_total   :string
-#  total_price :decimal(, )
-#  track_no    :integer
-#  updated_at  :datetime         not null
-#  user_id     :integer
+#  created_at      :datetime         not null
+#  id              :integer          not null, primary key
+#  order_status_id :integer
+#  shipping        :text
+#  status          :string
+#  sub_total       :string
+#  total_price     :decimal(, )
+#  track_no        :integer
+#  updated_at      :datetime         not null
+#  user_id         :integer
 #
 # Indexes
 #
-#  index_orders_on_user_id  (user_id)
+#  index_orders_on_order_status_id  (order_status_id)
+#  index_orders_on_user_id          (user_id)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

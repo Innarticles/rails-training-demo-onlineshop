@@ -8,6 +8,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Women's Fashion a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | About Us :: w3layouts</title>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% if request.ssl? %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% else %>
+    <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% end %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -196,12 +207,16 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
         </div>
       </div>
       <div class="cart box_1">
-        <a href="checkout.html">
+        
           <div class="total">
-          <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+          <!-- <span class="simpleCart_total"></span> --> <!-- (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items) -->
+            <%= render 'layouts/cart_text' %>
+          </div>
           <img src="images/bag.png" alt="" />
-        </a>
-        <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+        
+        <!-- EMPTY CART -->
+        <!-- <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p> -->
+       <!--  STOP EMPTY CART -->
         <div class="clearfix"> </div>
       </div>  
       <div class="clearfix"> </div>

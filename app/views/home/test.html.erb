@@ -1,6 +1,6 @@
  <% @products.each do |product| %>
-<%= link_to(:action => 'product', :id => product.id) do %> <p><%= product.title %> | <%= number_to_currency product.price %>
-    <p><%= product.price %></p>
+<%= link_to(:controller => 'products',:action => 'detail', :id => product.id) do %> <p><%= product.title %> | <%= number_to_currency product.price %>
+    <p><%= product.price %></p>+
     <p> add product </p>
   <%end %>
 <% end %>

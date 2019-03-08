@@ -1,23 +1,31 @@
 class CartItemsController < ApplicationController
 
 	def create
-    @order = current_order
-    @item = @order.cart_items.new(item_params)
-    @order.save
-    session[:order_id] = @order.id
-    redirect_to products_path
+    @cart = current_cart
+    @cart_item = @cart.cart_items.new(cart_item_params)
+    @cart.save
+
+    session[:cart_id] = @cart.id
+    
   end
+
+  def update
+    @cart = current_cart
+    @cart_item = @cart.cart_items.find(params[:id])
+    @cart_item.update_attributes(cart_item_params)
+    @cart_items = @cart.cart_items
+  end
+
   def destroy
-    @order = current_order
-    @item = @order.order_items.find(params[:id])
-    @item.destroy
-    @order.save
-    redirect_to cart_path
+    @order = current_cart
+    @cart_item = @cart.cart_items.find(params[:id])
+    @cart_item.destroy
+    @cart_items = @cart.cart_items
   end
 
   private
 
-  def item_params
+  def cart_item_params
     params.require(:cart_item).permit(:quantity, :product_id)
   end
 end

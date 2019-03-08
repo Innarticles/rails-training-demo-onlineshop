@@ -2,6 +2,7 @@
 #
 # Table name: products
 #
+#  active      :boolean
 #  color       :string
 #  created_at  :datetime         not null
 #  description :text             not null

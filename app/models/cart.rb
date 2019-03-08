@@ -2,21 +2,40 @@
 #
 # Table name: carts
 #
-#  cart_item_qty :integer
-#  created_at    :datetime         not null
-#  id            :integer          not null, primary key
-#  price         :decimal(15, 3)   not null
-#  updated_at    :datetime         not null
-#  user_id       :integer
+#  created_at      :datetime         not null
+#  id              :integer          not null, primary key
+#  order_status_id :integer
+#  subtotal        :decimal(, )
+#  total           :decimal(, )
+#  updated_at      :datetime         not null
+#  user_id         :integer
 #
 # Indexes
 #
-#  index_carts_on_user_id  (user_id)
+#  index_carts_on_order_status_id  (order_status_id)
+#  index_carts_on_user_id          (user_id)
 #
 
 class Cart < ApplicationRecord
-	#belongs_to :user
-	has_many :cart_items
-	validates :price, :cart_item_qty,:user_id, :cart_item_id, presence: true
-	validates :id, :cart_item_id, uniqueness: true
+	belongs_to :user , optional: true    
+  has_many :cart_items
+  belongs_to :order_status , optional: true
+  before_create :set_order_status
+  before_save :update_subtotal
+	
+	
+
+	def subtotal
+    cart_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+  end
+private
+  def set_order_status
+    self.order_status_id = 1
+  end
+
+  def update_subtotal
+    self[:subtotal] = subtotal
+  end
+
+
 end
