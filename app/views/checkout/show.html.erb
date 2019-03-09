@@ -1,2 +1,22 @@
-<h1>Checkout#show</h1>
-<p>Find me in app/views/checkout/show.html.erb</p>
+	<!-- USER INFO -->
+	<div>
+		
+		<%= @user.email %>
+		
+	</div>
+	<!-- USER INFO END -->
+	<!-- CART_ITEM INFO -->
+	<div>
+		
+	</div>
+	<!-- CART_ITEM INFO END -->
+		<% current_cart.cart_items.each do |cart_item| %>
+		<%= cart_item.product.title %>
+		<%= cart_item.total_price %>
+		<% end%>
+	<!-- SHIPPING INFO  -->
+	<div>
+		
+	</div>
+	<!-- SHIPPING INFO END -->
+	<a href='create'> CONFIRM ORDER </a>

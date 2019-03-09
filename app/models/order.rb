@@ -21,11 +21,11 @@
 
 class Order < ApplicationRecord
 
-  #belongs_to :order_status
+  belongs_to :order_status
 	has_many :cart_items
   belongs_to :user
 	# before_save :update_total
-  # before_create :update_status
+  before_create :set_order_status
 
 	#validates :user_id,  presence: true
 	validates :id, uniqueness: true
@@ -33,10 +33,10 @@ class Order < ApplicationRecord
       #  def subtotal
       #     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
       #   end
-      # private
-      #   def set_order_status
-      #     self.order_status_id = 1
-      #   end
+      private
+        def set_order_status
+          self.order_status_id = 2
+        end
 
       #   def update_subtotal
       #     self[:sub_total] = sub_total

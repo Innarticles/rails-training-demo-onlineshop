@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   
  
   
+  get 'order/create'
+  get 'order/update'
+  get 'order/delete'
   # get 'checkout/show'
   devise_for :sellers, path: 'admin', path_names: { sign_in: 'login', sign_out: 'logout'}
   devise_for :users
