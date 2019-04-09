@@ -27,13 +27,14 @@
   </div>
    <div class="field">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.number_field :quantity, min: 1 %>
+  </div>
+   <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :picture %>
   </div>
 
-  <div class="field">
-    <%= form.label :sale_price %>
-    <%= form.text_field :sale_price %>
-  </div>
+  
     <div class="field">
     <%= form.label :occasion %>
     <%= form.text_field :occasion %>
@@ -41,6 +42,11 @@
     <div class="field">
     <%= form.label :color  %>
     <%= form.text_field :color  %>
+  </div>
+    </div>
+    <div class="field">
+    <%= form.label :category  %>
+    <%= form.select :category, options_for_select(["skirts", "dress", "tops", "pants","watch", "sandal","jewellry"])%>
   </div>
 
  

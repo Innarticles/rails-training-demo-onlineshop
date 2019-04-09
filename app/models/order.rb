@@ -5,6 +5,7 @@
 #  created_at      :datetime         not null
 #  id              :integer          not null, primary key
 #  order_status_id :integer
+#  phone_no        :integer
 #  shipping        :text
 #  status          :string
 #  sub_total       :string
@@ -21,14 +22,16 @@
 
 class Order < ApplicationRecord
 
-  belongs_to :order_status
+  belongs_to :order_status, optional: true
 	has_many :cart_items
   belongs_to :user
 	# before_save :update_total
   before_create :set_order_status
 
-	#validates :user_id,  presence: true
+	validates :user_id,  presence: true
 	validates :id, uniqueness: true
+  validates :shipping, presence:true
+  validates :phone_no, presence:true
 
       #  def subtotal
       #     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum

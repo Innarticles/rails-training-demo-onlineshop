@@ -8,6 +8,6 @@ def current_cart
       Cart.find(session[:cart_id])
     else
       Cart.new
-    end
+    end											
   end
 end

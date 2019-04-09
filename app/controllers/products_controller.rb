@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to @product, notice: 'Product was successfully created.'
     else
-      render :new
+    redirect_to dashborad_path
     end
   end
 
@@ -59,6 +59,6 @@ class ProductsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def product_params
-      params.require(:product).permit(:title, :description, :price, :sale_price, :category)
+      params.require(:product).permit(:title,:quantity,:occasion, :description,:color, :price,:picture, :category, images: [])
     end
 end

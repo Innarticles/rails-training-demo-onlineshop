@@ -1,7 +1,24 @@
+	<%= form_for @order, remote: false do |f| %>
+		<%= f.text_field :shipping %>
+		<%= f.phone_field :phone_no %>
+		<%= f.hidden_field :user_id, value: @user.id %>
+<br>
+		<% current_cart.cart_items.each do |cart_item| %>
+		<input type="text" name="order[cart_items][]" value="<%= cart_item.id%>">
+		<br>
+		<% end%>
+
+
+
+
+		
+		<%= f.submit "complete order", class: "btn btn-primary" %>
+
+	
+	<% end%>
 	<!-- USER INFO -->
 	<div>
-		
-		<%= @user.email %>
+			<%= @user.email %>
 		
 	</div>
 	<!-- USER INFO END -->
@@ -19,4 +36,4 @@
 		
 	</div>
 	<!-- SHIPPING INFO END -->
-	<a href='create'> CONFIRM ORDER </a>
+	

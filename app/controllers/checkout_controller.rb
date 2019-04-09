@@ -6,4 +6,22 @@ class CheckoutController < ApplicationController
   		@order = Order.new
   		@user = current_user
   end
+  # def create
+  # 	@order = Order.new(order_params)
+  # 	if @order.save
+  # 		#make cart nill
+  # 		#redirect to success purcashed page/invoice print
+  # 	else
+  # 		render :show
+  # 		#flash notice purchased wasnt successfull
+  # 		#with an error
+  		
+  # 	end
+  	
+  # end
+  # private
+  # def order_params
+  # 	params.require(:ot)
+  # 	# 
+  # end
 end

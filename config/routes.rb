@@ -2,15 +2,23 @@ Rails.application.routes.draw do
   
  
   
-  get 'order/create'
-  get 'order/update'
-  get 'order/delete'
+  # get 'shop/skirts'
+  # get 'shop/dress'
+  # get 'shop/tops'
+  # get 'shop/pants'
+  # get 'shop/sandal'
+  # get 'shop/jewellery'
+  # get 'order/create'
+  # get 'order/update'
+  # get 'order/delete'
   # get 'checkout/show'
   devise_for :sellers, path: 'admin', path_names: { sign_in: 'login', sign_out: 'logout'}
   devise_for :users
   resources :products
   resources :orders
   resources :cart_items
+  get 'checkout/show'
+  get 'dashboard/index', as: 'dashboard'
   resource :cart, only: [:show]
 
   # authenticated :seller do

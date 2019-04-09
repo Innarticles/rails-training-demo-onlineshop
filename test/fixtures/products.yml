@@ -3,6 +3,7 @@
 # Table name: products
 #
 #  active      :boolean
+#  category    :string
 #  color       :string
 #  created_at  :datetime         not null
 #  description :text             not null
@@ -10,9 +11,7 @@
 #  occasion    :string
 #  price       :float            not null
 #  quantity    :integer
-#  sale_price  :float            not null
 #  seller_id   :integer
-#  sold_at     :integer
 #  title       :string           not null
 #  updated_at  :datetime         not null
 #

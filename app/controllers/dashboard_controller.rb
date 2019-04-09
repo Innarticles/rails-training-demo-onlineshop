@@ -33,10 +33,7 @@ class DashboardController < ApplicationController
   def show
   end
 
-  def destroy
-    @product.destroy
-    redirect_to products_url, notice: 'Product was successfully destroyed.'
-  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
