@@ -1,0 +1,9 @@
+	<%= form_for cart_item, remote: true do |f| %>
+	 <div class="simpleCart_shelfItem">
+	    <p><span>$300</span><i class="item_price"><%= number_to_currency product.price %></i></p>
+	    <%= f.hidden_field :quantity, value: 1, class: "form-control" %>
+	    <%= f.hidden_field :product_id, value: product.id %>
+	    <p><%= f.submit "Add to Cart", class: "btn btn-primary" %></p>
+
+	 </div>
+	<% end %>
